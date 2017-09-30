@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="88204348">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image, 'pic/ch_e-f.jpg')</l>
+<l>* read_image(Image, 'pic/ch_o-q1.jpg')</l>
+<c></c>
+<l>* dev_set_draw ('margin')</l>
+<c></c>
+<l>draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>disp_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<c></c>
+<l>reduce_domain (Image, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Model, 0, 20)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>area_center (Model, Area, Row, Column)</l>
+<l>threshold (Image, Region, 0, 45)</l>
+<l>connection (Region, ConnectedRegions)</l>
+<c></c>
+<c></c>
+<c>** 使用结构元进行开运算</c>
+<l>opening(ConnectedRegions, Model, RegionOpening)</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="3982657824">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image, 'pic/pcb_1.jpg')</l>
+<l>get_image_size (Image, Width, Height)</l>
+<c></c>
+<l>* invert_image (Image, Image)</l>
+<c></c>
+<c>* 前景提取</c>
+<l>threshold (Image, Region, 75, 255)</l>
+<l>* threshold (Image, Region, 0, 150)</l>
+<c></c>
+<c>** 作距离变换，由二值图像变成灰度图像，值就是到边界的距离</c>
+<l>distance_transform (Region, DistanceImage, 'chamfer-3-4', 'true', Width, Height)</l>
+<l>* distance_transform (Region, DistanceImage, 'city-block', 'true', Width, Height)</l>
+<l>* distance_transform (Region, DistanceImage, 'chessboard', 'true', Width, Height)</l>
+<l>* distance_transform (Region, DistanceImage, 'euclidean', 'true', Width, Height)</l>
+<c></c>
+<c></c>
+<c>** 距离变换后提取ROI，骨架</c>
+<l>threshold (DistanceImage, SkReg, 10, 21)</l>
+<l>skeleton (SkReg, Skeleton)</l>
+<c></c>
+<c>** 在距离变换图上，以骨架作为ROI,提取金属线所在. (不能直接在骨架上操作，因为固件是二值图像。)</c>
+<l>reduce_domain (DistanceImage, Skeleton, ImageReduced)</l>
+<c></c>
+<c>** 双阈值选择</c>
+<l>threshold (ImageReduced, RegionRes, [0, 18], [14, 21])</l>
+<c></c>
+<l>connection (RegionRes, ConnectedRegions)</l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 10, 99999)</l>
+<c></c>
+<l>* intersection (DistanceImage, Skeleton, RegionIntersection)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

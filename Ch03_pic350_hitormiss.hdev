@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="346305853">
+<procedure name="main">
+<interface/>
+<body>
+<l>* read_image(Image, 'pic/ch_e-f.jpg')</l>
+<l>* read_image(Image, 'pic/ch_o-q1.jpg')</l>
+<l>read_image (Image, 'pic/hm')</l>
+<c></c>
+<c></c>
+<l>dev_set_draw ('margin')</l>
+<c></c>
+<l>draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>disp_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<c></c>
+<l>reduce_domain (Image, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Model, 0, 35)</l>
+<c></c>
+<l>rad1 := 12.5</l>
+<l>rad2 := 24</l>
+<l>gen_circle (ROI_0, 72, 328, rad1)</l>
+<l>gen_circle (ROI_1, 72, 328, rad2)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>area_center (Model, Area, Row, Column)</l>
+<l>* skeleton (Model, Skeleton)</l>
+<c></c>
+<l>gen_circle(Circle1, Row, Column, rad1)</l>
+<l>boundary (Circle1, RegionBorder1, 'inner')</l>
+<c></c>
+<l>dev_display (Model)</l>
+<c></c>
+<l>gen_circle (Circle2, Row, Column, rad2)</l>
+<l>boundary (Circle2, RegionBorder2, 'outer')</l>
+<c></c>
+<l>threshold (Image, Region, 0, 35)</l>
+<l>connection (Region, ConnectedRegions)</l>
+<l>hit_or_miss (ConnectedRegions, RegionBorder1, RegionBorder2, RegionHitMiss, Row, Column)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

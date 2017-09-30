@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="3273299853">
+<procedure name="main">
+<interface/>
+<body>
+<l>* read_image(Image, 'pic/fin1.png')</l>
+<l>* read_image(Image, 'pic/fin2.png')</l>
+<l>read_image(Image, 'pic/fin3.png')</l>
+<c></c>
+<l>* rgb1_to_gray (Image, GrayImage)</l>
+<l>threshold (Image, RegBk, 0, 128)</l>
+<l>threshold (Image, RegFr, 128, 255)</l>
+<c></c>
+<l>* closing_circle (RegBk, RegionClosingBr, 101/2)</l>
+<l>closing_circle (RegFr, RegionClosingFr, 801/2.0)</l>
+<c></c>
+<c>** 针对区域的运算 difference</c>
+<l>difference (RegionClosingFr, RegFr, RegionDifference)</l>
+<l>opening_rectangle1 (RegionDifference, RegionOpening, 10, 10)</l>
+<c></c>
+<c>** sub_image只能用于图像的的运算</c>
+<l>full_domain (RegionClosingFr, ImageFull_1)</l>
+<l>convert_image_type (RegionClosingFr, ImageConverted1, 'int2')</l>
+<c></c>
+<l>* sub_image(RegFr, RegFr, ImageSub, 1, 0)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

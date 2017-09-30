@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="971170233">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image, './pic/letters.png')</l>
+<c></c>
+<l>draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>disp_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>reduce_domain (Image, Rectangle, ImageReduced)</l>
+<c></c>
+<l>threshold (ImageReduced, Region, 0, 48)</l>
+<c></c>
+<l>dilation_circle (Region, RegionDilation, 3.5)</l>
+<l>connection (RegionDilation, ConnectedRegions)</l>
+<c></c>
+<l>intersection (Region, ConnectedRegions, RegionIntersection)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="376349346">
+<procedure name="main">
+<interface/>
+<body>
+<l>* read_image(Image, 'pic/ch_e-f.jpg')</l>
+<l>read_image(Image, 'pic/ch_o-q.jpg')</l>
+<c></c>
+<c></c>
+<l>draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>disp_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<c></c>
+<l>reduce_domain (Image, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Model, 0, 35)</l>
+<c></c>
+<l>skeleton (Model, Skeleton)</l>
+<c></c>
+<l>area_center (Model, Area, Row, Column)</l>
+<l>area_center_gray (Model, ImageReduced, Area_gray, Row_gray, Col_gray)</l>
+<c></c>
+<l>* gen_disc_se (SE, 'byte', 5, 5, 0)</l>
+<c></c>
+<c></c>
+<l>dev_display (Image)</l>
+<l>threshold (Image, Region, 0, 95)</l>
+<l>connection (Region, ConnectedRegions)</l>
+<l>erosion1 (ConnectedRegions, Skeleton, RE, 1)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

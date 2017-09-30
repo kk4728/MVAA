@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="433697479">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image ,'1.jpg')</l>
+<c></c>
+<c>**</c>
+<l>mean_image (Image, ImageMean, 11,11)</l>
+<c>**</c>
+<l>gauss_image (Image, ImageGauss, 3)</l>
+<c>**</c>
+<l>mean_image (Image, ImageMean1, 11, 11)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

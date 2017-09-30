@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="949204272">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image, 'C:/Users/Administrator/Desktop/bga_14x14_defects.png')</l>
+<c></c>
+<l>dev_set_draw ('margin')</l>
+<l>draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>disp_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>reduce_domain (Image, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Region, 75, 225)</l>
+<c></c>
+<l>connection (Region, ConnectedRegions)</l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 20, 99999)</l>
+<l>area_center_gray (SelectedRegions, ImageReduced, Area, Row, Column)</l>
+<c></c>
+<l>elliptic_axis_gray (SelectedRegions, ImageReduced, Ra, Rb, Phi)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
