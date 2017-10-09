@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="4049079934">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image, 'pic/pcb_2.jpg')</l>
+<c></c>
+<l>rgb1_to_gray (Image, GrayImage)</l>
+<c>* Image -&gt; Region</c>
+<l>* get_domain (Image, Domain)</l>
+<c></c>
+<c>* 手机拍图，与书上11直径的八边形有出入</c>
+<c>* 开操作，收缩突起</c>
+<l>gray_opening_shape (GrayImage, ImageOpening, 19, 19, 'octagon')</l>
+<c></c>
+<c>* 闭操作，连接断裂/边界</c>
+<l>gray_closing_shape (GrayImage, ImageClosing, 19, 19, 'octagon')</l>
+<c></c>
+<l>dyn_threshold (ImageOpening, ImageClosing, RegionDynThresh, 35, 'not_equal')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

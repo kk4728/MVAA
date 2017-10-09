@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="11.0.2.1" cs="1038453347">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>read_image (Image, 'pic/string_1.jpg')</l>
+<c></c>
+<c></c>
+<l>gray_range_rect (Image, ImageResult, 25, 25)</l>
+<c></c>
+<l>threshold (ImageResult, Region, 80, 255)</l>
+<c></c>
+<c></c>
+<c>** connection   select_shape</c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
